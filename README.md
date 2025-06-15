@@ -30,35 +30,13 @@ nova_drive_elt_project/
 
 ---
 
-## ⚙️ Setup Instructions
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd nova_drive_elt_project
-   ```
-
-2. **Add required config files**
-   - `.env` → For environment variables
-   - GCP Service Account Key (e.g., `gcp-key.json`)
-   - DBT `profiles.yml` in `~/.dbt/`
-
-3. **Start the pipeline with Docker Compose**
-   ```bash
-   docker-compose up --build
-   ```
-
-4. **Access Airflow UI** at: [http://localhost:8080](http://localhost:8080)
-
----
-
 ## 📅 How It Works
 
 - A daily scheduled DAG orchestrates the pipeline.
 - Steps include:
-  - Ingestion of sales data (mocked or real)
-  - Transformation of data using DBT models
+  - Ingestion of sales data from PostgreSQL (remote database provided by the bootcamp instructor)
   - Loading to BigQuery tables
+  - Transformation of data using DBT models
 
 ---
 
@@ -85,12 +63,13 @@ Visual insights from BigQuery models are exposed through **Looker Studio**:
 
 ## 📄 License
 
-This project is not open for public contribution.
+This project is not open for public contribution once it is part of a bootcamp.
 
 ---
 
 ## 🙌 Acknowledgements
 
+- Prof. Fernando Amaral
 - dbt Labs
 - Google Cloud Platform
 - Apache Airflow
