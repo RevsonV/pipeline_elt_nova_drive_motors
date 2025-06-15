@@ -1,0 +1,91 @@
+version: 2
+
+sources:
+  - name: raw
+    database: dark-forge-453419-d7
+    schema: raw
+    tables:
+      - name: clientes
+      - name: concessionarias
+      - name: cidades
+      - name: estados
+      - name: veiculos
+      - name: vendedores
+      - name: vendas
+
+models:
+  - name: stg_clientes
+    description: Tabela de staging dos clientes.
+    columns:
+      - name: id_clientes
+        tests: [not_null, unique]
+      - name: cliente
+      - name: endereco
+      - name: id_concessionarias
+      - name: data_inclusao
+      - name: data_atualizacao
+
+  - name: stg_concessionarias
+    description: Tabela de staging das concessionárias.
+    columns:
+      - name: id_concessionarias
+        tests: [not_null, unique]
+      - name: nome_concessionaria
+      - name: id_cidades
+      - name: data_inclusao
+      - name: data_atualizacao
+
+  - name: stg_cidades
+    description: Tabela de staging das cidades.
+    columns:
+      - name: id_cidades
+        tests: [not_null, unique]
+      - name: nome_cidade
+      - name: id_estados
+      - name: data_inclusao
+      - name: data_atualizacao
+
+  - name: stg_estados
+    description: Tabela de staging dos estados.
+    columns:
+      - name: id_estados
+        tests: [not_null, unique]
+      - name: estado
+      - name: sigla
+      - name: data_inclusao
+      - name: data_atualizacao
+
+  - name: stg_veiculos
+    description: Tabela de staging dos veículos.
+    columns:
+      - name: id_veiculos
+        tests: [not_null, unique]
+      - name: nome
+      - name: tipo
+      - name: valor
+      - name: data_atualizacao
+      - name: data_inclusao
+
+  - name: stg_vendedores
+    description: Tabela de staging dos vendedores.
+    columns:
+      - name: id_vendedores
+        tests: [not_null, unique]
+      - name: nome_vendedor
+      - name: id_concessionarias
+      - name: data_inclusao
+      - name: data_atualizacao
+
+  - name: stg_vendas
+    description: Tabela de staging das vendas.
+    columns:
+      - name: id_vendas
+        tests: [not_null, unique]
+      - name: id_veiculos
+      - name: id_concessionarias
+      - name: id_vendedores
+      - name: id_clientes
+      - name: valor_venda
+      - name: data_venda
+      - name: data_inclusao
+      - name: data_atualizacao

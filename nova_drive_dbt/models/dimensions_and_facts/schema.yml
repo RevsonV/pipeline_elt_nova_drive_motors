@@ -1,0 +1,84 @@
+version: 2
+
+models:
+  - name: fct_vendas
+    description: >
+      Fato de vendas contendo transações e IDs das dimensões relacionadas (clientes, vendedores, veículos, concessionárias).
+    columns:
+      - name: venda_id
+        description: Identificador único da venda
+        tests: [not_null, unique]
+
+      - name: cliente_id
+        description: Chave estrangeira para a dimensão de clientes
+        tests: [not_null]
+
+      - name: vendedor_id
+        description: Chave estrangeira para a dimensão de vendedores
+        tests: [not_null]
+
+      - name: veiculo_id
+        description: Chave estrangeira para a dimensão de veículos
+        tests: [not_null]
+
+      - name: concessionaria_id
+        description: Chave estrangeira para a dimensão de concessionárias
+        tests: [not_null]
+
+  - name: dim_clientes
+    description: Dimensão contendo os dados dos clientes
+    columns:
+      - name: cliente_id
+        description: Identificador único do cliente
+        tests: [not_null, unique]
+
+      - name: concessionaria_id
+        description: Chave estrangeira para a dimensão de concessionárias
+        tests: [not_null, unique]
+
+  - name: dim_vendedores
+    description: Dimensão contendo os dados dos vendedores
+    columns:
+      - name: vendedor_id
+        description: Identificador único do vendedor
+        tests: [not_null, unique]
+        
+      - name: concessionaria_id
+        description: Chave estrangeira para a dimensão de concessionárias
+        tests: [not_null, unique]
+
+  - name: dim_cidades
+    description: Dimensão contendo os dados das cidades
+    columns:
+      - name: cidade_id
+        description: Identificador único da cidade
+        tests: [not_null, unique]
+        
+      - name: estado_id
+        description: Chave estrangeira para a dimensão de estados
+        test: [not_null, unique]
+
+  - name: dim_concessionarias
+    description: Dimensão contendo os dados das concessionárias
+    columns:
+      - name: concessionaria_id
+        description: Identificador único da concessionária
+        tests: [not_null, unique]
+
+      - name: cidade_id
+        description: Chave estrangeira para a dimensão cidades
+        test: [not_null, unique]
+
+  - name: dim_estados
+    description: Dimensão contendo os dados dos estados
+    columns:
+      - name: estado_id
+        description: Identificador único do estado
+        tests: [not_null, unique]
+
+  - name: dim_veiculos
+    description: Dimensão contendo os dados dos veículos
+    columns:
+      - name: veiculo_id
+        description: Identificador único do veículo
+        tests: [not_null, unique]

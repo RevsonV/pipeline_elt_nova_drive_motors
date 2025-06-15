@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: analise_vendas_concessionarias
+    description: >
+      Tabela de análise com o total de vendas, valor médio e quantidade de vendas por concessionária, cidade e estado.
+    columns:
+      - name: id
+        description: Identificador da concessionária
+        tests: [not_null]
+      - name: concessionaria
+        description: Nome da concessionária
+      - name: cidade
+        description: Cidade da concessionária
+      - name: estado
+        description: Estado da cidade da concessionária
+      - name: quantidade
+        description: Quantidade total de vendas realizadas
+      - name: total
+        description: Soma total do valor das vendas
+      - name: valor_medio
+        description: Valor médio das vendas
+
+  - name: analise_vendas_veiculo
+    description: >
+      Tabela de análise com a performance de vendas por veículo, incluindo tipo, valor sugerido, quantidade, total e valor médio das vendas.
+    columns:
+      - name: id
+        description: Identificador do veículo
+        tests: [not_null]
+      - name: veiculo
+        description: Nome do veículo
+      - name: tipo
+        description: Tipo do veículo
+      - name: valor_sugerido
+        description: Valor sugerido de venda do veículo
+      - name: quantidade
+        description: Quantidade total de vendas por veículo
+      - name: total
+        description: Soma total das vendas por veículo
+      - name: valor_medio
+        description: Valor médio de venda do veículo
+
+  - name: analise_vendas_temporal
+    description: >
+      Análise temporal das vendas agregadas por mês e ano.
+    columns:
+      - name: ano
+        description: Ano da venda
+        tests: [not_null]
+      - name: mes
+        description: Mês da venda
+        tests: [not_null]
+      - name: quantidade
+        description: Quantidade de vendas no período
+      - name: total
+        description: Valor total de vendas no período
+      - name: valor_medio
+        description: Valor médio de vendas no período
+
+  - name: analise_vendas_vendedor
+    description: >
+      Análise de vendas por vendedor, incluindo concessionária, total, média e quantidade de vendas.
+    columns:
+      - name: id
+        description: Identificador do vendedor
+        tests: [not_null]
+      - name: vendedor
+        description: Nome do vendedor
+      - name: concessionaria
+        description: Nome da concessionária
+      - name: quantidade
+        description: Quantidade total de vendas por vendedor
+      - name: total
+        description: Soma total das vendas por vendedor
+      - name: valor_medio
+        description: Valor médio de venda por vendedor
