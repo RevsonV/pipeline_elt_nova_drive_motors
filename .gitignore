@@ -1,0 +1,23 @@
+# Python
+*.pyc
+pycache/
+*.egg-info/
+build/
+dist/
+venv/
+.venv/
+*.env
+
+# dbt
+dbt_packages/
+target/
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
