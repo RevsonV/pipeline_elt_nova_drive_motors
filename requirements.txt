@@ -10,4 +10,9 @@ dbt-bigquery==1.7.0
 # Cliente PostgreSQL
 psycopg2-binary==2.9.9
 
+# Google Cloud e ETL
 google-cloud-bigquery==3.11.4
+google-cloud-storage==2.16.0
+gcsfs==2024.6.1
+pandas==2.2.2
+pandas-gbq==0.19.2
